@@ -1,0 +1,202 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Google cloud storage - test",
+    "description": "Connection to gc storage",
+    "version": "1.0"
+  },
+  "host": "storage.googleapis.com",
+  "basePath": "/upload/storage/v1/b/",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [],
+  "produces": [],
+  "paths": {
+    "/{bucket}/o": {
+      "post": {
+        "responses": {
+          "200": {
+            "description": "default",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "kind": {
+                  "type": "string",
+                  "description": "kind"
+                },
+                "contentType": {
+                  "type": "string",
+                  "description": "contentType"
+                },
+                "name": {
+                  "type": "string",
+                  "description": "name"
+                },
+                "etag": {
+                  "type": "string",
+                  "description": "etag"
+                },
+                "generation": {
+                  "type": "string",
+                  "description": "generation"
+                },
+                "md5Hash": {
+                  "type": "string",
+                  "description": "md5Hash"
+                },
+                "bucket": {
+                  "type": "string",
+                  "description": "bucket"
+                },
+                "updated": {
+                  "type": "string",
+                  "description": "updated"
+                },
+                "crc32c": {
+                  "type": "string",
+                  "description": "crc32c"
+                },
+                "metageneration": {
+                  "type": "string",
+                  "description": "metageneration"
+                },
+                "mediaLink": {
+                  "type": "string",
+                  "description": "mediaLink"
+                },
+                "timeStorageClassUpdated": {
+                  "type": "string",
+                  "description": "timeStorageClassUpdated"
+                },
+                "size": {
+                  "type": "string",
+                  "description": "size"
+                },
+                "timeCreated": {
+                  "type": "string",
+                  "description": "timeCreated"
+                },
+                "id": {
+                  "type": "string",
+                  "description": "id"
+                },
+                "selfLink": {
+                  "type": "string",
+                  "description": "selfLink"
+                },
+                "storageClass": {
+                  "type": "string",
+                  "description": "storageClass"
+                }
+              }
+            },
+            "headers": {
+              "HTTP/1.1": {
+                "description": "HTTP/1.1",
+                "type": "string"
+              },
+              "Content-length": {
+                "description": "Content-length",
+                "type": "integer"
+              },
+              "Expires": {
+                "description": "Expires",
+                "type": "string"
+              },
+              "Vary": {
+                "description": "Vary",
+                "type": "string"
+              },
+              "Server": {
+                "description": "Server",
+                "type": "string"
+              },
+              "Date": {
+                "description": "Date",
+                "type": "string"
+              },
+              "Etag": {
+                "description": "Etag",
+                "type": "string"
+              },
+              "Pragma": {
+                "description": "Pragma",
+                "type": "string"
+              },
+              "Cache-control": {
+                "description": "Cache-control",
+                "type": "string"
+              },
+              "X-guploader-uploadid": {
+                "description": "X-guploader-uploadid",
+                "type": "string"
+              },
+              "Alt-svc": {
+                "description": "Alt-svc",
+                "type": "string"
+              },
+              "Content-type": {
+                "description": "Content-type",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "operationId": "UploadGCS",
+        "summary": "Upload a file to GC Storage",
+        "description": "Upload data to gcs to a specific bucket",
+        "parameters": [
+          {
+            "name": "uploadType",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "bucket",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "upfile",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "definitions": {},
+  "parameters": {},
+  "responses": {},
+  "securityDefinitions": {
+    "oauth2_auth": {
+      "type": "oauth2",
+      "flow": "accessCode",
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "tokenUrl": "https://login.windows.net/common/oauth2/authorize",
+      "scopes": {
+        "https://www.googleapis.com/auth/devstorage.write_only": "https://www.googleapis.com/auth/devstorage.write_only"
+      }
+    }
+  },
+  "security": [
+    {
+      "oauth2_auth": [
+        "https://www.googleapis.com/auth/devstorage.write_only"
+      ]
+    }
+  ],
+  "tags": []
+}
